@@ -1,38 +1,128 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 100vh;
+  background-color: #252121;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/* Todo list */
+
+.todo-list {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.todo-heading {
   color: white;
+  text-align: center;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-card {
+  display: block;
+  position: relative;
+  padding: 10px 10px 10px 45px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-card input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.todo-card:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.todo-card input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+.todo-card input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.todo-card .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Todo input */
+
+.todo-input {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.todo-input input {
+  width: 100%;
+  height: 46px;
+  margin: 0;
+  border: none;
+  font-size: 20px;
+  padding-left: 50px;
+  box-sizing: border-box;
+}
+
+.todo-input img {
+  position: relative;
+  top: -37px;
+  left: 6px;
+  width: 30px;
+}
+
+.no-task {
+  color: white;
+    margin: 0 auto;
+    width: 40%;
+    text-align: center;
+    margin-top: 200px;
+}
+
+.no-task img {
+  width: 100px;
+}
+
+.no-task h3 {
+  margin: 20px 0 10px 0;
+}
+
+.no-task p {
+  opacity: 0.7;
 }
